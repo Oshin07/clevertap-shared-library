@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:name=".SampleApplication"
+        android:allowBackup="true"
+        android:label="CT Shared Library Test"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+
+        <!--
+            HOST APP'S OWN CLEVERTAP CREDENTIALS (for Scenario 2 only)
+            These configure the HOST APP'S default CleverTap instance — completely
+            separate from the shared library's instance which uses no manifest entries.
+
+            !! Replace with a real Account ID and Token for Account A !!
+            Comment out both meta-data tags to test Scenario 1 (no app CleverTap).
+        -->
+        <meta-data
+            android:name="CLEVERTAP_ACCOUNT_ID"
+            android:value="APP_ACCOUNT_ID" />
+        <meta-data
+            android:name="CLEVERTAP_TOKEN"
+            android:value="APP_ACCOUNT_TOKEN" />
+        <!--
+            Optional: set account region for host app's instance.
+            <meta-data android:name="CLEVERTAP_REGION" android:value="eu1" />
+        -->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".scenario.NoCleverTapScenarioActivity" />
+        <activity android:name=".scenario.WithCleverTapScenarioActivity" />
+        <activity android:name=".edgecases.EdgeCaseTestActivity" />
+
+    </application>
+
+</manifest>

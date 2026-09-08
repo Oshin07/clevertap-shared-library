@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        IMPORTANT: No CLEVERTAP_ACCOUNT_ID or CLEVERTAP_TOKEN meta-data here.
+        The library's CleverTap credentials are passed programmatically via
+        CleverTapInstanceConfig — they are never in the manifest.
+
+        This prevents:
+          1. Manifest merger conflicts when the host app also declares CleverTap credentials.
+          2. Exposing credentials in the merged AndroidManifest.xml of the host app.
+    -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+</manifest>
